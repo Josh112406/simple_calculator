@@ -9,6 +9,8 @@ class Calculator:
         return num1 * num2
     
     def divide(self, num1, num2):
+        if num2 == 0:
+            raise ZeroDivisionError("Cannot divide by zero.")
         return num1 / num2
     
     def display_result(self, result):
