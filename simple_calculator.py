@@ -21,5 +21,24 @@ class Calculator:
         return again == "y"
     
     
+class SimpleCalculator(Calculator):
+    def get_operation(self):
+        print("\n1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+        choice = int(input("Choose operation (1-4): "))
+        if choice not in [1, 2, 3, 4]:
+            raise ValueError("Invalid choice!")
+        return choice
     
+    def get_inputs(self):
+        try: 
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except Exception as e:
+            print(e)   
+            
+    def run(self):
+        pass
     
