@@ -41,6 +41,10 @@ class SimpleCalculator(Calculator):
         while True:
             try:
                 choice = self.get_operation()
+            except ValueError as e:
+                print(f"Invalid input: {e}")
+            
+            try:
                 num1, num2 = self.get_inputs()
 
                 if choice == 1:
@@ -54,7 +58,7 @@ class SimpleCalculator(Calculator):
             except ValueError as e:
                 print(f"Invalid input: {e}")
             except ZeroDivisionError as e:
-                print(f"Error: {e}")
+                print(f"Enter valid numbers only")
                 
             if not self.ask_try_again():
                 print("Closing...")
