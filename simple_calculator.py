@@ -17,10 +17,9 @@ class Calculator:
         print(f"Result: {result}")
     
     def ask_try_again(self) -> bool:
-        again =  input("Again? (y/n): ").lower()
+        again =  input("Use again? (y/n): ").lower()
         return again == "y"
-    
-    
+
 class SimpleCalculator(Calculator):
     def get_operation(self) -> int:
         print("\n1. Addition")
