@@ -41,7 +41,7 @@ class SimpleCalculator(Calculator):
         while True:
             try:
                 choice = self.get_operation()
-                num1, num2 = self.get_numbers()
+                num1, num2 = self.get_inputs()
 
                 if choice == 1:
                     self.display_result(self.add(num1, num2))
@@ -60,3 +60,5 @@ class SimpleCalculator(Calculator):
                 print("Closing...")
                 break
             
+calculator = SimpleCalculator()
+calculator.run()
