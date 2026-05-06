@@ -38,7 +38,17 @@ class SimpleCalculator(Calculator):
             num2 = float(input("Enter second number: "))
         except Exception as e:
             print(e)   
-            
+        
+        return num1, num2
     def run(self):
-        pass
-    
+        choice = self.get_operation()
+        num1, num2 = self.get_numbers()
+
+        if choice == 1:
+            self.display_result(self.add(num1, num2))
+        elif choice == 2:
+            self.display_result(self.subtract(num1, num2))
+        elif choice == 3:
+            self.display_result(self.multiply(num1, num2))
+        elif choice == 4:
+            self.display_result(self.divide(num1, num2))
