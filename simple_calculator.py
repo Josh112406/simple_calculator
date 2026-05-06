@@ -33,22 +33,30 @@ class SimpleCalculator(Calculator):
         return choice
     
     def get_inputs(self):
-        try: 
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
-        except Exception as e:
-            print(e)   
-        
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
         return num1, num2
-    def run(self):
-        choice = self.get_operation()
-        num1, num2 = self.get_numbers()
 
-        if choice == 1:
-            self.display_result(self.add(num1, num2))
-        elif choice == 2:
-            self.display_result(self.subtract(num1, num2))
-        elif choice == 3:
-            self.display_result(self.multiply(num1, num2))
-        elif choice == 4:
-            self.display_result(self.divide(num1, num2))
+    def run(self):
+        while True:
+            try:
+                choice = self.get_operation()
+                num1, num2 = self.get_numbers()
+
+                if choice == 1:
+                    self.display_result(self.add(num1, num2))
+                elif choice == 2:
+                    self.display_result(self.subtract(num1, num2))
+                elif choice == 3:
+                    self.display_result(self.multiply(num1, num2))
+                elif choice == 4:
+                    self.display_result(self.divide(num1, num2))
+            except ValueError as e:
+                print(f"Invalid input: {e}")
+            except ZeroDivisionError as e:
+                print(f"Error: {e}")
+                
+            if not self.ask_try_again():
+                print("Closing...")
+                break
+            
