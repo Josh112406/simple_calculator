@@ -1,14 +1,14 @@
 class Calculator:
-    def add(self, num1, num2):
+    def add(self, num1: float, num2: float) -> float:
         return num1 + num2
     
-    def subtract(self, num1, num2):
+    def subtract(self, num1: float, num2: float) -> float:
         return num1 - num2
     
-    def multiply(self, num1, num2):
+    def multiply(self, num1: float, num2: float) -> float:
         return num1 * num2
     
-    def divide(self, num1, num2):
+    def divide(self, num1: float, num2: float) -> float:
         if num2 == 0:
             raise ZeroDivisionError("Cannot divide by zero.")
         return num1 / num2
@@ -16,13 +16,13 @@ class Calculator:
     def display_result(self, result):
         print(f"Result: {result}")
     
-    def ask_try_again(self):
+    def ask_try_again(self) -> bool:
         again =  input("Again? (y/n): ").lower()
         return again == "y"
     
     
 class SimpleCalculator(Calculator):
-    def get_operation(self):
+    def get_operation(self) -> int:
         print("\n1. Addition")
         print("2. Subtraction")
         print("3. Multiplication")
@@ -32,7 +32,7 @@ class SimpleCalculator(Calculator):
             raise ValueError("Invalid choice!")
         return choice
     
-    def get_inputs(self):
+    def get_inputs(self) -> float:
         num1 = float(input("Enter first number: "))
         num2 = float(input("Enter second number: "))
         return num1, num2
